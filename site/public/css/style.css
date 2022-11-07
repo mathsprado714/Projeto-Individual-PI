@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+  background-color:#D9D9D9;
 }
 
 .container {
@@ -131,11 +131,27 @@ body {
 
 /* missao visao valores */
 
-.social {
+.social{
   background-color: #e5e5e5;
   display: flex;
 }
+.fundotime{
 
+  height: 500px;
+
+  background: rgba(255, 1, 91, 0.81);
+}
+.capa{
+  width: 1520px;
+  height: 500px;
+}
+.melhores{
+  position: absolute;
+  width: 748px;
+  height: 44px;
+  right: 370px;
+
+}
 .social .container{
   justify-content: center;
 }
@@ -169,6 +185,78 @@ body {
 
 
 /* FOOTER */
+
+footer{
+  padding: 30px 0;
+  background-color: #D9D9D9;
+}
+
+footer p{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+footer .box{
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 5%;
+  color: #75D390;
+  margin-bottom: 50px;
+}
+
+footer .img {
+  font-size: 10px;
+  width: 60%;
+  padding: 0 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+footer .input{
+  padding-right: 15px;
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: start;
+  margin-left: 190px;
+}
+
+footer .b{   
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+
+#in_newsletter {
+  margin-top: 134px;
+  border-radius: 9px;
+}
+
+footer .redes{
+  width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+
+footer .imagens{
+  margin-left: 370px;
+}
+
+footer img {
+  width: 5%;
+}
 
 .footer {
   background-color: #32b9cd;
