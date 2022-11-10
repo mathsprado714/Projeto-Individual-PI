@@ -135,10 +135,14 @@ body {
   background-color: #e5e5e5;
   display: flex;
 }
+.social{
+  background-image: url(./imgs/footbal.jpg); 
+  background-size: 1520px 500px;
+}
 .fundotime{
 
   height: 500px;
-
+  width: 100%;
   background: rgba(255, 1, 91, 0.81);
 }
 .capa{
@@ -205,7 +209,7 @@ footer .box{
   justify-content: center;
   text-align: center;
   padding: 0 5%;
-  color: #75D390;
+  color: #e5e5e5;
   margin-bottom: 50px;
 }
 
@@ -259,9 +263,9 @@ footer img {
 }
 
 .footer {
-  background-color: #32b9cd;
+  background-color: #e5e5e5;
   height: 150px;
-  color: #fff;
+  color: #38003D;
   display: flex;
   font-size: 15px;
 }
@@ -284,7 +288,7 @@ footer img {
   width: 400px;
   display: flex;
   flex-direction: column;
-  color: palevioletred;
+  color: #000000;
   align-items: center;
   border-radius: 4px;
 }
@@ -426,7 +430,7 @@ input {
 }
 
 .hello h3 {
-  color: #e3b062;
+  color: #000000;
   font-weight: 300;
   font-size: 1.2rem;
 }

@@ -1,0 +1,216 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#D9D9D9;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+  }
+  .container .titulo {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .header {
+    border-bottom: 6px solid #38003D;
+    background-color: #D9D9D9;
+  }
+  
+  .header .container {
+    justify-content: space-between;
+  }
+  
+
+  
+  .agora {
+    font-weight: 800;
+    font-style: normal;
+    color: #000000;
+  }
+  
+  .navbar {
+    width: 300px;
+    display: flex;
+    width: 400px;
+    height: 63px;
+  
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: #000000;
+  }
+  
+  
+  .titulo {
+    color: #000000;
+    width: fit-content;
+    font-weight: 500;
+    top: 0.8em;
+    position: relative;
+  }
+  
+  
+  /* BANNER */
+  
+  .banner {
+    height: fit-content;
+    padding: 40px 0;
+    background-color: #FF015B;
+    background-size: cover;
+  }
+  
+  .img1 {
+    position: absolute;
+    left: 100px;
+    box-sizing: border-box;
+    justify-content: start;
+    width: 660px;
+    height: 440px;
+    float: left;
+  }
+  .img2{
+    position: absolute;
+    right: 35%;
+    width: 200px;
+    height: 450px;
+  }
+  .img3{
+    position: absolute;
+    right: 23%; top: 116px;
+    width: 150px;
+    height: 35%;
+  }
+  .img4{
+    position: absolute;
+    right: 23%; top: 375px;
+    width: 150px;
+    height: 27%;
+  }
+  .img5{
+    width: 532px;
+    height: 648px;
+  }
+  .space{
+    height: 131px;
+    background: #D9D9D9;
+  }
+  .space2{
+    height: 10px;
+    background: #38003D;
+  }
+  .space3{
+    height: 131px;
+    background: #D9D9D9;
+  }
+  
+  .banner .container {
+    height: 400px;
+    font-size: 36px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tamanho-conteudo { 
+    height: fit-content !important;
+  }
+  
+  .banner p {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    width: 280px;
+    font-size: 36px;
+  }
+  
+  .banner .container span {
+    font-weight: 800;
+  }
+  
+  /* missao visao valores */
+  
+  .social{
+    background-color: #e5e5e5;
+    display: flex;
+  }
+  .social{
+    background-image: url(./imgs/footbal.jpg); 
+    background-size: 1520px 500px;
+  }
+  .fundotime{
+  
+    height: 400px;
+    width: 100%;
+    background: rgba(255, 1, 91, 0.81);
+  }
+  .capa{
+    width: 1520px;
+    height: 500px;
+  }
+  .melhores{
+    position: absolute;
+    width: 748px;
+    height: 44px;
+    right: 370px;
+  
+  }
+  .social .container{
+    justify-content: center;
+  }
+  
+  .box img {
+    width: 170px;
+  }
+  
+  .social .container .boxes {
+    display: flex;
+  }
+  
+  .social p {
+    text-align: center;
+  }
+  
+  .box {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .box {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  /* FOOTER */
+  
+  footer{
+    padding: 30px 0;
+    background-color: #D9D9D9;
+  }
+
+  .footer {
+    background-color: #e5e5e5;
+    height: 150px;
+    color: #38003D;
+    display: flex;
+    font-size: 15px;
+  }
+  
+  .footer .container {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .footer .container .version {
+    font-size: 12px;
+  }
