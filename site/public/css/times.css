@@ -56,7 +56,7 @@ body {
 }
 
 
-.simulador {
+.info {
   color: white;
   
 }
@@ -67,9 +67,18 @@ body {
   background: rgba(255, 1, 91, 0.81);
 }
   
-.simulador .container {
-  flex-direction: column
+.info .container {
+  flex-direction: column;
 }
+.lado{
+  display: flex;
+  flex-direction:row;
+}
+
+.atributos{
+  margin-left: 1em;
+}
+
 .space2{
   height: 5px;
   background: #38003D;
