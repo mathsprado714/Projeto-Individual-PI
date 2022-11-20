@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AquaTech | Login</title>
     <script src="./js/funcoes.js"></script>
+    <script src="./src/models/avis"></script>
     <link rel="icon" href="./imgs/premier-league-5.ico">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -138,9 +139,9 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
 
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.setItem('ID_USUARIO', json.idUsuario)
+                    sessionStorage.setItem('NOME_USUARIO', json.nome)
+                    sessionStorage.setItem('EMAIL_USUARIO', json.email)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";

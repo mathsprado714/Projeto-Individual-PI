@@ -113,18 +113,21 @@
 
 <script>
     
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = sessionStorage.getItem('NOME_USUARIO')
+
 
     function limparFormulario() {
         document.getElementById("form_postagem").reset();
     }
 
     function publicar() {
-        var idUsuario = sessionStorage.ID_USUARIO;
+        var idUsuario = sessionStorage.getItem('ID_USUARIO');
+        console.log(idUsuario)   
 
         var corpo = {
             titulo: form_postagem.titulo.value,
-            descricao: form_postagem.descricao.value
+            descricao: form_postagem.descricao.value,
+            idUsuario
         }
 
         fetch(`/avisos/publicar/${idUsuario}`, {
