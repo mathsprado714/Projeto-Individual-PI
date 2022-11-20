@@ -25,13 +25,20 @@ body {
   .header .container {
     justify-content: space-between;
   }
-  
+  .logo1 a{
+    text-decoration: none;
+  }
+  .navbar a{
+    text-decoration: none;
+    color: #000000;
+  }
 
   
-  .agora {
+  .agora{
     font-weight: 800;
     font-style: normal;
     color: #000000;
+    text-decoration: none;
   }
   
   .navbar {

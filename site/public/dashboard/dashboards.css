@@ -10,6 +10,23 @@ body {
   justify-content: center;
 }
 
+.header-left{
+  background-color: #FF015B;
+}
+.header-left h1{
+  color: #000000;
+}
+.header-left h3{
+  color: #000000;
+}
+.hello{
+  color: #000000;
+}
+.btn-logout{
+  background-color: #ffffff;
+}
+
+
 .dash-right .avisos {
   width: 100%;
   /* border: 3px solid pink; */
@@ -111,7 +128,7 @@ body {
 /* pagina graficos */
 
 .dash-header {
-  background-color: #212124;
+  background-color: #e6005a;
 }
 
 .dash {
