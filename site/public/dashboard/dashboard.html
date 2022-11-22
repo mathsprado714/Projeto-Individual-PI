@@ -42,13 +42,13 @@
 
             <div class="btn-nav">
 
-                <h3>Gráficos</h3>
+                <h3>Ranking de Melhores Times</h3>
 
             </div>
 
             <div class="btn-nav-white">
                 <a href="./mural.html">
-                    <h3>Avaliação do Usúario</h3>
+                    <h3>Avaliação do Site</h3>
                 </a>
             </div>
 
@@ -65,6 +65,7 @@
                 <button class="btn-chart btn-white" onclick="obterDadosGrafico(2)">Aquario 2</button>
                 <button class="btn-chart btn-white" onclick="obterDadosGrafico(3)">Aquario 3</button>
                 <button class="btn-chart btn-white" onclick="obterDadosGrafico(4)">Aquario 4</button>
+=
             </div>
             <div>
                 <h3 class="tituloGraficos">
@@ -86,11 +87,11 @@
 </html>
 
 <script>
-    
+
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-    
+
     let proximaAtualizacao;
-        
+
     window.onload = obterDadosGrafico(1);
 
     verificar_autenticacao();
@@ -143,7 +144,7 @@
 
         // Criando estrutura para plotar gráfico - labels
         let labels = [];
-        
+
         // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: labels,
@@ -162,11 +163,11 @@
                 tension: 0.1
             }]
         };
-        
+
         console.log('----------------------------------------------')
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
-        
+
         // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
@@ -174,7 +175,7 @@
             dados.datasets[0].data.push(registro.umidade);
             dados.datasets[1].data.push(registro.temperatura);
         }
-        
+
         console.log('----------------------------------------------')
         console.log('O gráfico será plotado com os respectivos valores:')
         console.log('Labels:')
@@ -182,7 +183,7 @@
         console.log('Dados:')
         console.log(dados.datasets)
         console.log('----------------------------------------------')
-        
+
         // Criando estrutura para plotar gráfico - config
         const config = {
             type: 'line',

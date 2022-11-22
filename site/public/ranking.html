@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PremierSoccer</title>
-    <script src="./js/funcoes.js"></script>
     <link rel="icon" href="./imgs/premier-league-5.ico">
     <link rel="stylesheet" href="./css/times.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -53,22 +53,16 @@
     </div>
 
     <div class="fundotime">
-    <!-- simulador inicio -->
-    <div class="info">
-        <div class="container">
-            <center><h2>Arsenal</h2></center>
-            <img src="./imgs/arsenal-football-club-1024.png" alt="" style="width: 250px; margin-left: 30em;">
-            <h3>Historia do Arsenal</h3>
-            <p> O Arsenal Football Club foi criado em 1886 por um grupo de trabalhadores que criaram um time de futebol 
-                para fugir da vida difícil dentro da fábrica de munições em que trabalhavam. Desde a fundação, o time sempre 
-                teve uma grande preocupação com o lado social, como em 1912, quando disputou uma partida para a arrecadação 
-                de dinheiro para o Fundo de Desastres do Titanic.</p>
-            <h3>Títulos</h3>
-            <p>O Arsenal possuí 1 Recopa Europeia, 13 Campeonatos Ingleses, 14 Copas da Inglaterra, 2 Copas da Liga Inglesa e 
-                16 Supercopas da Inglaterra.</p>
-                <h3>Melhor Jogador do Time</h3><br>
+        <!-- simulador inicio -->
+        <div class="info">
+            <div class="container">
+                <center>
+                    <h2>Arsenal</h2>
+                </center>
                 <div class="lado">
-                    <img src="./assets/Melhores/Buyako Saka.jpg" style="width: 250px;" alt=""> 
+                        <div style="display:flex; position: relative; height:40vh; width:40vw; background-color: #ffffff;">
+                            <canvas id="myChart"></canvas>
+                        </div>
                     <div class="atributos">
                         <h3>Atributos do Jogador</h3>
                         <li>Altura 1,78cm</li><br>
@@ -84,22 +78,60 @@
                 </div>
             </div><br>
         </div>
-    <!-- simulador fim -->
-    <div class="space2"></div>
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Para os amantes da Premier League existe o PremierSoccer &copy; 2022
-                <br>
-                <span class="version">
-                    v1.0.0
-                </span>
-            </h4>
+        <div class="space2"></div>
+        <div class="footer">
+            <div class="container">
+                <h4>Para os amantes da Premier League existe o PremierSoccer &copy; 2022
+                    <br>
+                    <span class="version">
+                        v1.0.0
+                    </span>
+                </h4>
+            </div>
         </div>
-    </div>
-    <!--footer fim-->
 
 
 </body>
+<script>
 
+const labels = [
+        '12:00',
+        '13:00',
+        '14:00',
+        '15:00',
+        '16:00',
+        '17:00',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Time',
+            backgroundColor: '#FF015B',
+            borderColor: 'rgb(255, 0, 0)',
+            data: [30, 29, 28, 25, 22, 23],
+        },
+        {
+            label: 'Melhor Jogador',
+            backgroundColor: 'rgb(000, 00, 255)',
+            borderColor: 'rgb(000, 00, 255)',
+            data: [80, 82, 80, 85, 80, 83],
+        }
+        ]
+    };
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+    };
+
+</script>
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+</script>
 </html>
+
