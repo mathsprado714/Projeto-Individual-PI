@@ -1,5 +1,6 @@
 create database premier;
 use premier;
+drop table jogador;
 drop database premier;
 create table usuario(
 	idUsuario int primary key auto_increment,
@@ -8,19 +9,23 @@ create table usuario(
     senha varchar(45)
 );
 
-create table notaJogador(
-	idnotaJogador int auto_increment,
-    debruyneNota decimal(3,2),
-    antonyNota decimal(3,2),
-    harryNota decimal(3,2),
-    salahNota decimal(3,2),
-    kalidouNota decimal(3,2),
-    buyakoNota decimal(3,2),
-    fkUsuario int,
-    foreign key (fkUsuario) references usuario(idUsuario),
-    primary key (idnotaJogador, fkUsuario)
-);
+create table jogador(
+	idJogador int primary key auto_increment,
+	nomeJogador varchar(45),
+    timeJogador varchar(45)
+);	
+select * from jogador;
 
+create table nota(
+	idNota int auto_increment,
+    nota int,
+	fkUsuario int,
+    foreign key (fkUsuario) references usuario(idUsuario),
+    fkJogador int,
+    foreign key (fkJogador) references jogador(idJogador),
+    primary key (idNota, fkUsuario, fkJogador)
+);
+drop table jogador;
 create table avaliacao(
 	idAvaliacao int auto_increment,
 	titulo varchar(45),
@@ -30,7 +35,17 @@ create table avaliacao(
     primary key (idAvaliacao, fkUsuario),
     unique (fkUsuario)
 );
+
+select * from avaliacao;
 select*from avaliacao;
+insert into jogador(nomeJogador, timeJogador)value
+	('De Bruyne', 'Manchester City'),
+    ('Antony', 'Manchester United'),
+    ('Buyako Saka', 'Arsenal'),
+    ('Salah', 'Liverpool'),
+    ('Kalidou Koulibaly', 'Chelsea'),
+    ('Harry Kane', 'Tottenham');
+
 select * from usuario as u join
 	notaJogador as nj
 		on nj.fkUsuario = u.idUsuario;
@@ -44,7 +59,10 @@ select u.idUsuario, u.nome, nj.* from usuario as u join
 select u.idUsuario, a.titulo, a.descricao from usuario as u
 	join avaliacao as a on a.fkUsuario = u.idUsuario;
     
-select * from usuario;
+select * from nota;
+select n.nota, j.nomeJogador, j.timeJogador from nota as n join jogador as j on n.fkJogador = j.idJogador;
+
+desc jogador;
 desc avaliacao;
 SELECT 
             a.idAvaliacao AS idAviso,
@@ -123,4 +141,4 @@ create table medida (
 	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
 );
 
-
+select * from nota;

@@ -18,7 +18,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizacaoPeriodica()">
+<body onload="validarSessao()">
 
     <div class="janela">
 
@@ -80,48 +80,64 @@
 
             <div class="cards">
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>De Bruyne</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_1">-°C</p>
+                        Escolha o Jogador: <select name="" id="sel_jogador">
+                            <option value="">--Escolha uma opção--</option>
+                            <option value="1">De Bruyne</option>
+                            <option value="2">Antony</option>
+                            <option value="3">Salah</option>
+                            <option value="4">Kalidou Koulibaly</option>
+                            <option value="5">Buyako Saka</option>
+                            <option value="6">Harry Kane</option>
+                        </select>
+                        Insira a Pontuação no Jogador:
+                        <input type="text" placeholder="Pontuação" id="in_p1">
                     </div>
                     <div class="cor-alerta" id="card_1"></div>
                 </div>
-                <div class="card">
-                    <h1>Aquário 1</h1>
+                <!-- <div class="card">
+                    <h1>Antony</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_2">-°C</p>
+                        Insira a Pontuação no Jogador:
+                        <input type="text" placeholder="Pontuação" id="in_p2">
                     </div>
                     <div class="cor-alerta" id="card_2"></div>
 
                 </div>
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>Salah</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_3">-°C</p>
+                        Insira a Pontuação no Jogador:
+                        <input type="text" placeholder="Pontuação" id="in_p3">
                     </div>
                     <div class="cor-alerta ideal" id="card_3"></div>
                 </div>
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>Kalidou Koulibaly</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_4">-°C</p>
+                        Insira a Pontuação no Jogador:
+                        <input type="text" placeholder="Pontuação" id="in_p4">
                     </div>
                     <div class="cor-alerta" id="card_4"></div>
                 </div>
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>Buyako Saka</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_4">-°C</p>
+                        Insira a Pontuação no Jogador:
+                        <input type="text" placeholder="Pontuação" id="in_p5">
                     </div>
                     <div class="cor-alerta" id="card_4"></div>
                 </div>
                 <div class="card">
-                    <h1>Aquário 1</h1>
+                    <h1>Harry Kane</h1>
                     <div class="temperatura">
-                        <p id="temp_aquario_4">-°C</p>
+                        Insira a Pontuação no Jogador:
+                        <input type="text" placeholder="Pontuação" id="in_p6">
                     </div>
                     <div class="cor-alerta" id="card_4"></div>
-                </div>
+                </div> -->
+                <button onclick="notas()">Cadastrar a Pontuação</button>
 
             </div>
 
@@ -133,102 +149,208 @@
 
 <script>
 
-    function atualizacaoPeriodica() {
-        obterdados(1);
-        obterdados(2);
-        obterdados(3);
-        obterdados(4);
+    jogadores = [
+            {
+                idJogador: 1,
+                nomeJogador: 'De Bruyne',
+                timejogador: 'Manchester City'
+            },
+            {
+                idJogador: 2,
+                nomeJogador: 'Antony',
+                timejogador: 'Manchester United'
+            },
+            {
+                idJogador: 3,
+                nomeJogador: 'Buyako Saka',
+                timejogador: 'Arsenal'
+            },
+            {
+                idJogador: 4,
+                nomeJogador: 'Salah',
+                timejogador: 'Liverpool'
+            },
+            {
+                idJogador: 5,
+                nomeJogador: 'Kalidou Koulibaly',
+                timejogador: 'Chelsea'
+            },
+            {
+                idJogador: 6,
+                nomeJogador: 'Harry Kane',
+                timejogador: 'Tottenham'
+            }
+    ]
 
-        function sendData() {
-			var http = new XMLHttpRequest();
-			http.open('POST', 'http://localhost:3000/api/sendData', false);
-			http.send(null);
-		}
+    function notas(){
+        aguardar();
+        var idUsuario = sessionStorage.getItem('ID_USUARIO')
+        var jogador = sel_jogador.value
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var notaServer = Number(in_p1.value)
+        var notaVar = notaServer
 
-        setInterval(() => {
-			sendData();
-		}, 2000);
-        setTimeout(atualizacaoPeriodica, 5000);
-    }
+        // var antonyServer = Number(in_p2.value)
+        // var salahServer = Number(in_p3.value)
+        // var kalidouServer = Number(in_p4.value)
+        // var buyakoServer = Number(in_p5.value)
+        // var harryServer = Number(in_p6.value)
 
-    function obterdados(idAquario) {
-        fetch(`/medidas/tempo-real/${idAquario}`)
-            .then(resposta => {
+            if (notaServer == "") {
+                alert('Preencha todos os campos corretamente')
 
-                if (resposta.ok) {
-                    resposta.json().then(resposta => {
+                //finalizarAguardar();
+                return false;
+            }
+            // else {
+            //     setInterval(sumirMensagem, 5000)
+            // }
+        
+        
 
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                        var dados = {
-                            temperatura: resposta[0].temperatura,
-                        }
-
-                        alertar(resposta[0].temperatura, idAquario);
-                    });
-                } else {
-
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
+        // Enviando o valor da nova input
+        fetch("../usuarios/notas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+            notaServer : notaVar,
+            idUsuarioServer : idUsuario,
+            jogadorServer : jogador
+            // antonyServer : antonyVar ,           
+            // salahServer : salahVar,
+            // kalidouServer : kalidouVar,
+            // buyakoServer : buyakoVar,
+            // harryServer : harryVar
             })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
-            });
+        }).then(function (resposta) {
 
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Registro realizado com sucesso!";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
     }
 
-    function alertar(temperatura, idAquario) {
-        var limites = {
-            muito_quente: 23,
-            quente: 22,
-            ideal: 20,
-            frio: 10,
-            muito_frio: 5
-        };
 
-        var classe_temperatura = 'cor-alerta';
 
-        if (temperatura >= limites.muito_quente) {
-            classe_temperatura = 'cor-alerta perigo-quente';
-            console.log("caiu no 1")
-        }
-        else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
-            classe_temperatura = 'cor-alerta alerta-quente';
-            console.log("caiu no 2")
-        }
-        else if (temperatura < limites.quente && temperatura > limites.frio) {
-            classe_temperatura = 'cor-alerta ideal';
-            console.log("caiu no 3")
-        }
-        else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
-            classe_temperatura = 'cor-alerta alerta-frio';
-            console.log("caiu no 4")
-        }
-        else if (temperatura < limites.min_temperatura) {
-            classe_temperatura = 'cor-alerta perigo-frio';
-            console.log("caiu no 5")
-        }
+    // function atualizacaoPeriodica() {
+    //     obterdados(1);
+    //     obterdados(2);
+    //     obterdados(3);
+    //     obterdados(4);
 
-        var card;
+    //     function sendData() {
+	// 		var http = new XMLHttpRequest();
+	// 		http.open('POST', 'http://localhost:3000/api/sendData', false);
+	// 		http.send(null);
+	// 	}
 
-        if (idAquario == 1) {
-            temp_aquario_1.innerHTML = temperatura + "°C";
-            card = card_1
-        } else if (idAquario == 2) {
-            temp_aquario_2.innerHTML = temperatura + "°C";
-            card = card_2
-        } else if (idAquario == 3) {
-            temp_aquario_3.innerHTML = temperatura + "°C";
-            card = card_3
-        } else if (idAquario == 4) {
-            temp_aquario_4.innerHTML = temperatura + "°C";
-            card = card_4
-        }
+    //     setInterval(() => {
+	// 		sendData();
+	// 	}, 2000);
+    //     setTimeout(atualizacaoPeriodica, 5000);
+    // }
 
-        // alterando
-        card.className = classe_temperatura;
+    // function obterdados(idAquario) {
+    //     fetch(`/medidas/tempo-real/${idAquario}`)
+    //         .then(resposta => {
 
-    }
+    //             if (resposta.ok) {
+    //                 resposta.json().then(resposta => {
+
+    //                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+    //                     var dados = {
+    //                         temperatura: resposta[0].temperatura,
+    //                     }
+
+    //                     alertar(resposta[0].temperatura, idAquario);
+    //                 });
+    //             } else {
+
+    //                 console.error('Nenhum dado encontrado ou erro na API');
+    //             }
+    //         })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+    //         });
+
+    // }
+
+    // function alertar(temperatura, idAquario) {
+    //     var limites = {
+    //         muito_quente: 23,
+    //         quente: 22,
+    //         ideal: 20,
+    //         frio: 10,
+    //         muito_frio: 5
+    //     };
+
+    //     var classe_temperatura = 'cor-alerta';
+
+    //     if (temperatura >= limites.muito_quente) {
+    //         classe_temperatura = 'cor-alerta perigo-quente';
+    //         console.log("caiu no 1")
+    //     }
+    //     else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
+    //         classe_temperatura = 'cor-alerta alerta-quente';
+    //         console.log("caiu no 2")
+    //     }
+    //     else if (temperatura < limites.quente && temperatura > limites.frio) {
+    //         classe_temperatura = 'cor-alerta ideal';
+    //         console.log("caiu no 3")
+    //     }
+    //     else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
+    //         classe_temperatura = 'cor-alerta alerta-frio';
+    //         console.log("caiu no 4")
+    //     }
+    //     else if (temperatura < limites.min_temperatura) {
+    //         classe_temperatura = 'cor-alerta perigo-frio';
+    //         console.log("caiu no 5")
+    //     }
+
+    //     var card;
+
+    //     if (idAquario == 1) {
+    //         temp_aquario_1.innerHTML = temperatura + "°C";
+    //         card = card_1
+    //     } else if (idAquario == 2) {
+    //         temp_aquario_2.innerHTML = temperatura + "°C";
+    //         card = card_2
+    //     } else if (idAquario == 3) {
+    //         temp_aquario_3.innerHTML = temperatura + "°C";
+    //         card = card_3
+    //     } else if (idAquario == 4) {
+    //         temp_aquario_4.innerHTML = temperatura + "°C";
+    //         card = card_4
+    //     }
+
+    //     // alterando
+    //     card.className = classe_temperatura;
+
+    // }
 
 </script>
 
