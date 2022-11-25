@@ -25,7 +25,19 @@ body {
 .btn-logout{
   background-color: #ffffff;
 }
-
+.notajogador{
+  margin: 0;
+  margin-right: 14em;
+  padding: 0;
+  width: 20%;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px 15px;
+  margin-bottom: 100px;
+  cursor: pointer;
+}
 
 .dash-right .avisos {
   width: 100%;
@@ -199,10 +211,11 @@ body {
   flex-wrap: wrap;
   display: flex;
   text-align: center;
-  height: 180px;
+  height: 300px;
   justify-content: right;
-  background-color: #212124;
+  background-color: #FF015B;
   font-size: 20px;
+  border-radius: 20px;
 }
 
 .card p {
@@ -233,7 +246,6 @@ body {
   height: 30%;
   border-radius: 50px;
   margin-top: 6%;
-  /* background-color: #c7c7c7; */
 }
 
 .btns-dash {

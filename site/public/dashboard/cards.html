@@ -55,46 +55,41 @@
 
         <div class="dash">
             <div class="regua">
-                <div class="item-regua perigo-frio">
-                    <h4>Perigo</h4>
-                    <h2>0°C</h2>
-                </div>
                 <div class="item-regua alerta-frio">
-                    <h4>Alerta</h4>
-                    <h2>0°C</h2>
+                    <h4>Miníma</h4>
+                    <span id="min"></span>
                 </div>
                 <div class="item-regua ideal">
-                    <h4>Ideal</h4>
-                    <h2>0°C</h2>
+                    <h4>Média</h4>
+                    <span id="media"></span>
                 </div>
                 <div class="item-regua alerta-quente">
-                    <h4>Alerta</h4>
-                    <h2>0°C</h2>
-                </div>
-                <div class="item-regua perigo-quente">
-                    <h4>Perigo</h4>
-                    <h2>0°C</h2>
+                    <h4>Máxima</h4>
+                    <span id="max"></span>
                 </div>
                 
             </div>
 
             <div class="cards">
                 <div class="card">
-                    <h1>De Bruyne</h1>
+                    <h1>Avalie com notas os Jogadores</h1>
                     <div class="temperatura">
                         Escolha o Jogador: <select name="" id="sel_jogador">
                             <option value="">--Escolha uma opção--</option>
                             <option value="1">De Bruyne</option>
                             <option value="2">Antony</option>
-                            <option value="3">Salah</option>
-                            <option value="4">Kalidou Koulibaly</option>
-                            <option value="5">Buyako Saka</option>
+                            <option value="4">Salah</option>
+                            <option value="5">Kalidou Koulibaly</option>
+                            <option value="3">Buyako Saka</option>
                             <option value="6">Harry Kane</option>
                         </select>
                         Insira a Pontuação no Jogador:
                         <input type="text" placeholder="Pontuação" id="in_p1">
                     </div>
-                    <div class="cor-alerta" id="card_1"></div>
+                    <div class="cor-alerta">
+                        <!-- <button onclick="notas()">Cadastrar a Pontuação</button> -->
+                    </div>
+                    <button onclick="notas()" class="notajogador">Cadastrar a Pontuação</button>
                 </div>
                 <!-- <div class="card">
                     <h1>Antony</h1>
@@ -137,7 +132,7 @@
                     </div>
                     <div class="cor-alerta" id="card_4"></div>
                 </div> -->
-                <button onclick="notas()">Cadastrar a Pontuação</button>
+                <!-- <button onclick="notas()">Cadastrar a Pontuação</button> -->
 
             </div>
 
@@ -148,7 +143,7 @@
 </body>
 
 <script>
-
+    window.onload = obterDadosGrafico()
     jogadores = [
             {
                 idJogador: 1,
@@ -197,15 +192,16 @@
         // var buyakoServer = Number(in_p5.value)
         // var harryServer = Number(in_p6.value)
 
-            if (notaServer == "") {
+            if (notaServer == "" || jogador == "") {
                 alert('Preencha todos os campos corretamente')
 
                 //finalizarAguardar();
                 return false;
             }
-            // else {
+            else {
+                alert('Nota Cadastrada com sucesso!')
             //     setInterval(sumirMensagem, 5000)
-            // }
+            }
         
         
 
@@ -221,11 +217,7 @@
             notaServer : notaVar,
             idUsuarioServer : idUsuario,
             jogadorServer : jogador
-            // antonyServer : antonyVar ,           
-            // salahServer : salahVar,
-            // kalidouServer : kalidouVar,
-            // buyakoServer : buyakoVar,
-            // harryServer : harryVar
+            
             })
         }).then(function (resposta) {
 
@@ -253,6 +245,54 @@
         return false;
     }
 
+    function obterDadosGrafico(idNota) {
+
+        fetch(`/medidas/ultimas/${idNota}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idNota);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function plotarGrafico(resposta, idNota) {
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            min.innerHTML = resposta[i].minimo
+            media.innerHTML = resposta[i].media
+            max.innerHTML = resposta[i].maxima
+            //labels.push(registro.momento_grafico);
+            // dados.datasets[0].data.push(registro.umidade);
+            // dados.datasets[1].data.push(registro.temperatura);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        // console.log(labels)
+        console.log('Dados:')
+        // console.log(dados.datasets)
+        console.log('----------------------------------------------')
+
+    }
 
 
     // function atualizacaoPeriodica() {

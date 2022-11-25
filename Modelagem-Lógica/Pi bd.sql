@@ -61,10 +61,15 @@ select u.idUsuario, a.titulo, a.descricao from usuario as u
     
 select * from nota;
 select n.nota, j.nomeJogador, j.timeJogador from nota as n join jogador as j on n.fkJogador = j.idJogador;
+select nomeJogador, timeJogador, nota from jogador join nota on fkJogador = idJogador;
+select * from jogador as j join nota as n
+	on n.fkJogador = j.idJogador;
 
+j.nomeJogador, j.timeJogador 
+	from jogador as j join nota as n on n.fkJogador = j.idJogador;
 desc jogador;
 desc avaliacao;
-
+select min(nota) as 'Minímo', avg(nota) as 'Média', max(nota) from nota;
 #selects usadoa para buscar a avaliação do usuário
 SELECT 
             a.idAvaliacao AS idAviso,
@@ -107,7 +112,8 @@ SELECT
             INNER JOIN usuario u
                 ON a.fkUsuario = u.idUsuario;
 ##############
-select * from nota;
+select * from nota;;
 select * from usuario;
 select * from avaliacao;
 select * from jogador;
+use premier;

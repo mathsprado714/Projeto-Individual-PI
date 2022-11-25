@@ -35,9 +35,10 @@ body {
 .box{
   display: flex;
 }
-.box a {
-  width: 100px;
-  height: 150px;
+.atributos .box {
+  width: 50em;
+  display: flex;
+  height: 100em;
 }
 .agora {
   font-weight: 800;
