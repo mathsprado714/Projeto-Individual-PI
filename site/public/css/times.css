@@ -32,9 +32,13 @@ body {
 .header .container {
   justify-content: space-between;
 }
-
-
-
+.box{
+  display: flex;
+}
+.box a {
+  width: 100px;
+  height: 150px;
+}
 .agora {
   font-weight: 800;
   font-style: normal;

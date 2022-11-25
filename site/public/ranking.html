@@ -57,25 +57,25 @@
         <div class="info">
             <div class="container">
                 <center>
-                    <h2>Arsenal</h2>
+                    <h2>Ranking dos times com o melhor nível técnico</h2>
                 </center>
                 <div class="lado">
                         <div style="display:flex; position: relative; height:40vh; width:40vw; background-color: #ffffff;">
-                            <canvas id="myChart"></canvas>
+                            <canvas id="myChart" style="height: 40vh; width: 40vw;"></canvas>
                         </div>
                     <div class="atributos">
-                        <h3>Atributos do Jogador</h3>
-                        <li>Altura 1,78cm</li><br>
-                        <li>Peso 65 kg</li><br>
-                        <li>Perna boa Esquerda</li><br>
-                        <li>Data de nascimento 5 de Setembro de 2001</li><br>
-                        <li>Idade 21</li><br>
-                        <li>Posições Preferidas Meia Direito/Meia Esquerdo</li><br>
-                        <li>Nível de Dedicação Alta/Média</li><br>
-                        <li>Valor €34.500.000</li><br>
+                        <div class="box">
+                            <a href="./arsenal.html"><img src="./imgs/arsenal-football-club-1024.png" alt="icone da missão"></a>
+                            <a href="./chelsea.html"><img src="./imgs/chelsea-football-club-1024.png" alt="icone da visão"></a>
+                            <a href="./liverpool.html"><img src="./imgs/liverpool-football-club-1024.png" alt="icone da visão"></a>
+                            <a href="./manchestercity.html"><img src="./imgs/manchester-city-football-club-1024.png" alt="icone da visão"></a>
+                            <a href="./totthenham.html"><img src="./imgs/tottenham-hotspur-football-club-1024.png" alt="icone dos valores"></a>
+                            <a href="./manchesterunited.html"><img src="./imgs/Manchester-United-logo-escudo-6.png" alt="icone dos valores"></a>
+                    </div>
                         <br>
                     </div>
                 </div>
+                
             </div><br>
         </div>
         <div class="space2"></div>
@@ -95,28 +95,23 @@
 <script>
 
 const labels = [
-        '12:00',
-        '13:00',
-        '14:00',
-        '15:00',
-        '16:00',
-        '17:00',
+        'Manchester City',
+        'Manchester United',
+        'Liverpool',
+        'Arsenal',
+        'Tottehnam',
+        'Chelsea',
     ];
 
     const data = {
         labels: labels,
-        datasets: [{
-            label: 'Time',
-            backgroundColor: '#FF015B',
-            borderColor: 'rgb(255, 0, 0)',
-            data: [30, 29, 28, 25, 22, 23],
-        },
-        {
-            label: 'Melhor Jogador',
-            backgroundColor: 'rgb(000, 00, 255)',
-            borderColor: 'rgb(000, 00, 255)',
-            data: [80, 82, 80, 85, 80, 83],
-        }
+        datasets: [
+            {
+                label: 'Time com Melhor nível técnico',
+                backgroundColor: 'rgb(000, 00, 255)',
+                borderColor: 'rgb(000, 00, 255)',
+                data: [80, 82, 80, 85, 80, 80],
+            }
         ]
     };
     const config = {
