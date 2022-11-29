@@ -1,5 +1,6 @@
 create database premier;
 use premier;
+drop database premier;
 drop table jogador;
 drop database premier;
 create table usuario(
@@ -14,11 +15,11 @@ create table jogador(
 	nomeJogador varchar(45),
     timeJogador varchar(45)
 );	
-select * from jogador;
+select * from nota;
 
 create table nota(
 	idNota int auto_increment,
-    nota int,
+    nota decimal(4,2),
 	fkUsuario int,
     foreign key (fkUsuario) references usuario(idUsuario),
     fkJogador int,
@@ -58,6 +59,9 @@ select u.idUsuario, u.nome, nj.* from usuario as u join
 
 select u.idUsuario, a.titulo, a.descricao from usuario as u
 	join avaliacao as a on a.fkUsuario = u.idUsuario;
+
+select j.nomeJogador, j.timeJogador, min(nota) from nota as n join jogador as j on n.fkJogador = j.idJogador;
+select j.nomeJogador, j.timeJogador, max(nota) from nota as n join jogador as j on n.fkJogador = j.idJogador;
     
 select * from nota;
 select n.nota, j.nomeJogador, j.timeJogador from nota as n join jogador as j on n.fkJogador = j.idJogador;
@@ -65,11 +69,27 @@ select nomeJogador, timeJogador, nota from jogador join nota on fkJogador = idJo
 select * from jogador as j join nota as n
 	on n.fkJogador = j.idJogador;
 
+select 
 j.nomeJogador, j.timeJogador 
 	from jogador as j join nota as n on n.fkJogador = j.idJogador;
 desc jogador;
+select * from jogador;
+
 desc avaliacao;
+
+select * from nota join jogador on fkJogador=idJogador;
+
+select min(nota) as 'minimo', max(nota), j.nomeJogador, j.timeJogador from jogador as j join nota as n on n.fkJogador = j.idJogador where n.fkUsuario = 2;
+
+select j.nomeJogador as 'jogador', j.timeJogador as 'time', n.nota as 'nota', min(nota) as 'minimo', max(nota) as 'maximo', avg(nota) as 'media' from nota as n join jogador as j on n.fkJogador = j.idJogador
+	where n.nota < 4;
+    
+select j.nomeJogador as 'joga',
+
 select min(nota) as 'Minímo', avg(nota) as 'Média', max(nota) from nota;
+
+
+
 #selects usadoa para buscar a avaliação do usuário
 SELECT 
             a.idAvaliacao AS idAviso,
@@ -112,7 +132,7 @@ SELECT
             INNER JOIN usuario u
                 ON a.fkUsuario = u.idUsuario;
 ##############
-select * from nota;;
+select * from nota;
 select * from usuario;
 select * from avaliacao;
 select * from jogador;

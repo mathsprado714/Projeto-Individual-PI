@@ -36,12 +36,6 @@
             </div>
 
             <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Ranking de Melhores Times</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
                 <a href="./mural.html">
                     <h3>Avaliação do Site</h3>
                 </a>
@@ -66,6 +60,10 @@
                 <div class="item-regua alerta-quente">
                     <h4>Máxima</h4>
                     <span id="max"></span>
+                </div>
+                <div class="item-regua alerta-quente">
+                    <h4>Quantidade de avaliações</h4>
+                    <span id="quantidade"></span>
                 </div>
                 
             </div>
@@ -143,6 +141,8 @@
 </body>
 
 <script>
+
+    b_usuario.innerHTML = sessionStorage.getItem('NOME_USUARIO')
     window.onload = obterDadosGrafico()
     jogadores = [
             {
@@ -181,24 +181,18 @@
         aguardar();
         var idUsuario = sessionStorage.getItem('ID_USUARIO')
         var jogador = sel_jogador.value
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
         var notaServer = Number(in_p1.value)
         var notaVar = notaServer
-
-        // var antonyServer = Number(in_p2.value)
-        // var salahServer = Number(in_p3.value)
-        // var kalidouServer = Number(in_p4.value)
-        // var buyakoServer = Number(in_p5.value)
-        // var harryServer = Number(in_p6.value)
 
             if (notaServer == "" || jogador == "") {
                 alert('Preencha todos os campos corretamente')
 
                 //finalizarAguardar();
                 return false;
-            }
-            else {
+            } else if(notaServer > 100){
+                alert('A PONTUAÇÃO DEVE SER MENOR QUE 100!')
+                return false;
+            } else {
                 alert('Nota Cadastrada com sucesso!')
             //     setInterval(sumirMensagem, 5000)
             }
@@ -279,6 +273,7 @@
             min.innerHTML = resposta[i].minimo
             media.innerHTML = resposta[i].media
             max.innerHTML = resposta[i].maxima
+            quantidade.innerHTML = resposta[i].quantidade
             //labels.push(registro.momento_grafico);
             // dados.datasets[0].data.push(registro.umidade);
             // dados.datasets[1].data.push(registro.temperatura);

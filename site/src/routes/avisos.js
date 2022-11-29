@@ -3,9 +3,9 @@ var router = express.Router();
 
 var avisoController = require("../controllers/avisoController");
 
-router.get("/", function (req, res) {
-    avisoController.testar(req, res);
-});
+// router.get("/", function (req, res) {
+//     avisoController.testar(req, res);
+// });
 
 router.get("/listar", function (req, res) {
     avisoController.listar(req, res);
@@ -23,11 +23,11 @@ router.post("/publicar/:idUsuario", function (req, res) {
     avisoController.publicar(req, res);
 });
 
-router.put("/editar/:idAviso", function (req, res) {
+router.put("/editar/:idAvaliacao", function (req, res) {
     avisoController.editar(req, res);
 });
 
-router.delete("/deletar/:idAviso", function (req, res) {
+router.delete("/deletar/:idAvaliacao", function (req, res) {
     avisoController.deletar(req, res);
 });
 

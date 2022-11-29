@@ -57,24 +57,41 @@
         <div class="info">
             <div class="container">
                 <center>
-                    <h2>Ranking dos times com o melhor nível técnico</h2>
+                    <h2>Ranking dos times mais valiosos da Premier League</h2>
                 </center>
                 <div class="lado">
                         <div style="display:flex; position: relative; height:40vh; width:40vw; background-color: #ffffff;">
                             <canvas id="myChart" style="height: 40vh; width: 40vw;"></canvas>
                         </div>
                     <div class="atributos">
-                        <!-- <div class="box">
-                            <a href="./arsenal.html"><img src="./imgs/arsenal-football-club-1024.png" alt="arsenal" style="display:flex; position: relative; height:130px; width:170px;" ></a>
-                            <a href="./chelsea.html"><img src="./imgs/chelsea-football-club-1024.png" alt="chelsea" style="display:flex; position: relative; height:130px; width:170px;" ></a>
-                            <a href="./liverpool.html"><img src="./imgs/liverpool-football-club-1024.png" alt="liverpool" style="display:flex; position: relative; height:130px; width:170px;" ></a>
-                            <a href="./manchestercity.html"><img src="./imgs/manchester-city-football-club-1024.png" style="display:flex; position: relative; height:130px; width:170px;"  alt="manchestercity"></a>
-                            <a href="./totthenham.html"><img src="./imgs/tottenham-hotspur-football-club-1024.png"  style="display:flex; position: relative; height:130px; width:170px;" alt="totthenham"></a>
-                            <a href="./manchesterunited.html"><img src="./imgs/Manchester-United-logo-escudo-6.png" style="display:flex; position: relative; height:130px; width:170px;"  alt="manchesterunited"></a>
-                        </div> -->
-                        <br>
+                        <ul>
+                            1º Manchester City (1,01 bilhões de euros)
+                        </ul>
+
+                        <ul>
+                            2º Liverpool (870 milhões de euros)
+                        </ul>
+
+                        <ul>
+                            3º Chelsea (834,7 milhões de euros)
+                        </ul>
+
+                        <ul>    
+                            4º Tottenham (749,3 milhões de euros)
+                        </ul>
+
+                        <ul>
+                            5º Manchester United (726,8 milhões de euros)
+                        </ul>
+
+                        <ul>
+                            6º Arsenal (697,7 milhões de euros)
+                        </ul>
                     </div>
                 </div>
+                    <center>
+                        <h3>Times Relacionados no gráfico</h3>
+                    </center>
                 <div class="box">
                     <a href="./arsenal.html"><img src="./imgs/arsenal-football-club-1024.png" alt="arsenal" style="display:flex; position: relative; height:130px; width:170px;" ></a>
                     <a href="./chelsea.html"><img src="./imgs/chelsea-football-club-1024.png" alt="chelsea" style="display:flex; position: relative; height:130px; width:170px;" ></a>
@@ -103,21 +120,21 @@
 
 const labels = [
         'Manchester City',
-        'Manchester United',
         'Liverpool',
-        'Arsenal',
-        'Tottehnam',
         'Chelsea',
+        'Tottenham ',
+        'Manchester United',
+        'Arsenal',
     ];
 
     const data = {
         labels: labels,
         datasets: [
             {
-                label: 'Time com Melhor nível técnico',
-                backgroundColor: 'rgb(000, 00, 255)',
+                label: 'Valor dos times mais valiosos da Premier League',
+                backgroundColor: '#38003D',
                 borderColor: 'rgb(000, 00, 255)',
-                data: [80, 82, 80, 85, 80, 80],
+                data: [1001000000, 870000000, 834700000, 749300000, 726800000, 697700000],
             }
         ]
     };

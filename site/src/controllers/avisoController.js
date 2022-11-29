@@ -1,9 +1,9 @@
 var avisoModel = require("../models/avisoModel");
 
-function testar(req, res) {
-    console.log("ENTRAMOS NO avisoController");
-    res.send("ENTRAMOS NO AVISO CONTROLLER");
-}
+// function testar(req, res) {
+//     console.log("ENTRAMOS NO avisoController");
+//     res.send("ENTRAMOS NO AVISO CONTROLLER");
+// }
 
 function listar(req, res) {
     avisoModel.listar().then(function (resultado) {
@@ -95,9 +95,9 @@ function publicar(req, res) {
 
 function editar(req, res) {
     var novaDescricao = req.body.descricao;
-    var idAviso = req.params.idAviso;
+    var idAvaliacao = req.params.idAvaliacao;
 
-    avisoModel.editar(novaDescricao, idAviso)
+    avisoModel.editar(novaDescricao, idAvaliacao)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -114,9 +114,9 @@ function editar(req, res) {
 }
 
 function deletar(req, res) {
-    var idAviso = req.params.idAviso;
+    var idAvaliacao = req.params.idAvaliacao;
 
-    avisoModel.deletar(idAviso)
+    avisoModel.deletar(idAvaliacao)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -132,7 +132,7 @@ function deletar(req, res) {
 }
 
 module.exports = {
-    testar,
+    // testar,
     listar,
     listarPorUsuario,
     pesquisarDescricao,

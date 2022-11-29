@@ -100,14 +100,7 @@ function notas(req, res) {
     var notaVar = req.body.notaServer
     var idUsuario = req.body.idUsuarioServer
     var jogador = req.body.jogadorServer
-    // var antony = req.body.antonyServer;
-    // var salah = req.body.salahServer;
-    // var kalidou = req.body.kalidouServer;
-    // var buyako = req.body.buyakoServer;
-    // var harry = req.body.harryServer;
-
-    // Faça as validações dos valores
-    // || antony == undefined || salah == undefined || kalidou == undefined || buyako == undefined || harry == undefined
+ 
     if (notaVar == undefined && idUsuario == undefined && jogador == undefined) {
         res.status(400).send("Seu campo está undefined!");
     } else {
