@@ -56,25 +56,46 @@
         <!-- simulador inicio -->
         <div class="info">
             <div class="container">
-                <center><h2>Chelsea</h2></center>
+                <center><h2>Premier League</h2></center>
                 <img src="./imgs/premier-league-5.png" alt="" style="width: 250px; margin-left: 30em;">
-                <h3>Historia do Chelsea</h3>
-                <p> No ano de 1904, Henry Augusto Mears acabou tomando posse do Stanford Bridge, em Londres. Com o 
-                    principal objetivo de gerar uma renda maior, tentou convencer o presidente do Fulham a realizar 
-                    partidas no estádio. Com isso, as divergências impediram que o acordo fosse para frente e acabou 
-                    não ocorrendo. Gus Mears estava prestes a vender o terreno, mas seu amigo Fred Parker sugeriu que o 
-                    empresário criasse um clube para disputar partidas no estádio. Assim foi criado em 10 de março de 
-                    1905, o Chelsea Football Club.</p>
-                    <h3>Títulos</h3>
-                <p>Os Chelsea possuí 2 Champions Leagues, 2 Ligas Europa, 2 Recopas Europeias, 2 Supercopas da Uefa, 
-                    6 Campeonatos Ingleses, 8 Copas da Inglaterra, 5 Copas da Liga Inglesa, 4 Supercopas da Inglaterra e 
-                    1 Mundial de Clubes.</p>
-                    <h3>Melhor Jogador do Time</h3><br>
+                <h3>Origem da Premier League</h3>
+                <p> No ano de 1992, os melhores e mais tradicionais clubes ingleses decidiram criar uma
+                    nova liga nacional, que logo após um encontro com a Associação Inglesa de Futebol, o 
+                    anunciaram a criação da nova liga inglesa. <br>
+                    E um ano antes no ano 1991, a juíza Rose deu carta branca para os clubes de maior nome no país criarem a 
+                    liga liderados pelo Big Five composto por Manchester United, Liverpool, Arsenal, Tottenham e Everton, 
+                    para criarem uma divisão superior na Inglaterra.
+                    E com a aprovação da Football Association, que foi realizada no ano 1992. Para agradar a Federação Inglesa 
+                    de futebol, os clubes estavam dispostos a criar um campeonato nacional com 20 times participantes para desgastar 
+                    menos os atletas que jogam outros tipos de torneios como Eurocopa, Uefa Champions League e Copa do Mundo.
+                </p>
+                    <h3>Receita Gerada pela Premier League</h3>
+                <p>A Premier League é a competição que mais gera dinheiro no mundo, sendo transmitida em cerca de 190 países. 
+                    Desse modo os times ingleses são os que possuem os melhores patrocinadores do mundo, e com isso conseguem 
+                    adquirir os jogadores do mundo e é por isso que os mesmos possuem uma boa parte dos melhores e mais caros 
+                    jogadores.</p>
+                    <br>
                     <div class="lado">
-                        <img src="./assets/Melhores/Kalidou Koulibaly.jpg" style="width: 250px;" alt=""> 
+                        <!-- <img src="./assets/Melhores/Kalidou Koulibaly.jpg" style="width: 250px;" alt="">  -->
                         <div class="atributos">
-                            <h3>Atributos do Jogador</h3>
-                            <li>Altura 1,87cm</li><br>
+                            <h3>Escolha o seu time Favorito</h3><br>
+                            <select name="" id="sel_tempo">
+                                <option value="0">--Escolha um time!--</option>
+                                <option value="1">Manchester City</option>
+                                <option value="2">Liverpool</option>
+                                <option value="3">Chelsea</option>
+                                <option value="4">Tottehnam</option>
+                                <option value="5">Manchester United</option>
+                                <option value="6">Arsenal</option>
+                            </select><br>
+                            Insira a sua idade:
+                            <input type="text" id="in_idade">
+                            <br>
+                            Insira quantos anos você acompanha esse time:
+                            <input type="text" id="in_acompanho"><br>
+                            <button onclick="tempo()">CONFIRMAR</button><br>
+                            <div id="div_tempo"></div><br>
+                            <!-- <li>Altura 1,87cm</li><br>
                             <li>Peso 89kg</li><br>
                             <li>Perna boa Direita</li><br>
                             <li>Data de nascimento 20 de Junho de 1991</li><br>
@@ -82,14 +103,14 @@
                             <li>Posições Preferidas Zaqueiro Lateral</li><br>
                             <li>Nível de Dedicação Alta / Média</li><br>
                             <li>Valor €54.500.000</li><br>
-                            <br>
+                            <br> -->
                         </div>
                     </div>
                 </div><br>
-                <center>
+                <!-- <center>
                     <h3>Video explicativo sobre a história do Chelsea</h3>
                     <iframe src="https://www.youtube.com/embed/T5zaM25mAL4" frameborder="0" width="800" height="400"></iframe>
-                </center>
+                </center> -->
                 <br>
             </div>
     
@@ -111,3 +132,33 @@
     </body>
     
     </html>
+
+    <script>
+
+        function tempo(){
+            var times = Number(sel_tempo.value)
+            var idade = Number(in_idade.value)
+            var tempo =  Number(in_acompanho.value)
+            var frase
+
+
+            if (times == 0 && idade == "" || idade <= 0) {
+                alert("Escolha um time, e preencha a idade de FORMA CORRETA!")
+            } else if(times == 1){
+                frase = `O Manchester City tem 142 anos e quando você nasceu esse clube tinha ${142 - idade}, e quando você começou a acompanhar esse time ele tinha ${142-tempo} anos. Esse time é o 2° time mais antigo do nosso sistema.`
+            } else if(times == 2){
+                frase = `O Liverpool tem 130 anos e quando você nasceu esse clube tinha ${130 - idade}, e quando você começou a acompanhar esse time ele tinha ${130-tempo} anos. Esse time é 5° time mais antigo do nosso sistema.`
+            } else if(times == 3){
+                frase = `O Chelsea tem 117 anos e quando você nasceu esse clube tinha ${117 - idade}, e quando você começou a acompanhar esse time ele tinha ${117-tempo} anos. Esse time é o 6° do nosso sistema.`
+            } else if(times == 4){
+                frase = `O Tottenham tem 140 anos e quando você nasceu esse clube tinha ${140 - idade}, e quando você começou a acompanhar esse time ele tinha ${140-tempo} anos. Esse time é o 3° time mais antigo do nosso sistema.`
+            } else if(times == 5){
+                frase = `O Manchester United tem 144 anos e quando você nasceu esse clube tinha ${144 - idade}, e quando você começou a acompanhar esse time ele tinha ${144-tempo} anos. Esse time é o mais antigo do nosso sistema.`
+            } else if(times == 6){
+                frase = `O Arsenal tem 136 anos e quando você nasceu esse clube tinha ${136 - idade}, e quando você começou a acompanhar esse time ele tinha ${136-tempo} anos. Esse time é 4° time mais antigo do nosso sistema.`
+            } 
+
+            div_tempo.innerHTML = frase
+        }
+
+    </script>

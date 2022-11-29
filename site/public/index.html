@@ -103,13 +103,15 @@
     <div class="space2"></div>
     <div class="info">
     <div class="fundotime2">
-                    <div class="container">
-                        <center><h2>Sobre Mim!</h2></center>
-                        <h3>Qual o Objetivo?</h3>
-                        <p> O nosso grande obketivo e desafio é fazer uma plataforma em que os fans da Premier League possam 
-                            conhecer melhor sobre os 6 melhores times que dessa competição e sobre os seis melhores jogadores 
-                            de cada time nesse campeonato tão difícil e disputado, então vamos nessa!</p>
+            <div class="container">
+                <div class="lado">
+                    <img src="./assets/Melhores/Harry Kane of Tottenham Hotspur celebrates after he scores his sides___.jpg" style="width: 250px;" alt=""> 
+                    <button onclick="eu()">Sobre mim?</button><br>
+                    <div class="atributos" id="div_eu">
+                        
                     </div>
+                </div>
+            </div>
         </div>
     </div>
         <div class="space"></div>
@@ -128,3 +130,31 @@
 </body>
 
 </html>
+
+<script>
+
+    var matheusPrado = [
+        {
+            contexto: 'Olá, me chamo Matheus Prado!<br>'
+        },
+        {
+            contexto: 'Tenho 20 anos, e sou torcedor do Manchester City!<br>'
+        },
+        {
+            contexto: 'Objetivo do Projeto: Mostrar as Curiosidades sobre a Premier League, os melhores times e seus melhores jogadores.<br>'
+        },
+        {
+            contexto: 'Público alvo: Pessoas com conhecimentos mínimos sobre o futebol em geral.<br>'
+        },
+        {
+            contexto: 'Valores: Resiliência, força de vontade, dedicação e fé!'
+        }
+    ]
+    function eu(){
+        div_eu.innerHTML = ''
+        for(var i = 0; i<matheusPrado.length; i++){
+            div_eu.innerHTML += matheusPrado[i].contexto 
+        }
+    }
+
+</script>

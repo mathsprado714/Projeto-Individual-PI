@@ -138,6 +138,10 @@ body {
   align-items: center;
 }
 
+.info .container {
+  flex-direction: column;
+}
+
 .tamanho-conteudo {
   height: fit-content !important;
 }
