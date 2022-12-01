@@ -61,7 +61,7 @@
                     <h4>Máxima</h4>
                     <span id="max"></span>
                 </div>
-                <div class="item-regua alerta-quente">
+                <div class="item-regua perigo-frio">
                     <h4>Quantidade de avaliações</h4>
                     <span id="quantidade"></span>
                 </div>
@@ -85,53 +85,10 @@
                         <input type="text" placeholder="Pontuação" id="in_p1">
                     </div>
                     <div class="cor-alerta">
-                        <!-- <button onclick="notas()">Cadastrar a Pontuação</button> -->
                     </div>
                     <button onclick="notas()" class="notajogador">Cadastrar a Pontuação</button>
                 </div>
-                <!-- <div class="card">
-                    <h1>Antony</h1>
-                    <div class="temperatura">
-                        Insira a Pontuação no Jogador:
-                        <input type="text" placeholder="Pontuação" id="in_p2">
-                    </div>
-                    <div class="cor-alerta" id="card_2"></div>
-
-                </div>
-                <div class="card">
-                    <h1>Salah</h1>
-                    <div class="temperatura">
-                        Insira a Pontuação no Jogador:
-                        <input type="text" placeholder="Pontuação" id="in_p3">
-                    </div>
-                    <div class="cor-alerta ideal" id="card_3"></div>
-                </div>
-                <div class="card">
-                    <h1>Kalidou Koulibaly</h1>
-                    <div class="temperatura">
-                        Insira a Pontuação no Jogador:
-                        <input type="text" placeholder="Pontuação" id="in_p4">
-                    </div>
-                    <div class="cor-alerta" id="card_4"></div>
-                </div>
-                <div class="card">
-                    <h1>Buyako Saka</h1>
-                    <div class="temperatura">
-                        Insira a Pontuação no Jogador:
-                        <input type="text" placeholder="Pontuação" id="in_p5">
-                    </div>
-                    <div class="cor-alerta" id="card_4"></div>
-                </div>
-                <div class="card">
-                    <h1>Harry Kane</h1>
-                    <div class="temperatura">
-                        Insira a Pontuação no Jogador:
-                        <input type="text" placeholder="Pontuação" id="in_p6">
-                    </div>
-                    <div class="cor-alerta" id="card_4"></div>
-                </div> -->
-                <!-- <button onclick="notas()">Cadastrar a Pontuação</button> -->
-
+                
             </div>
 
         </div>
@@ -143,39 +100,7 @@
 <script>
 
     b_usuario.innerHTML = sessionStorage.getItem('NOME_USUARIO')
-    window.onload = obterDadosGrafico()
-    // jogadores = [
-    //         {
-    //             idJogador: 1,
-    //             nomeJogador: 'De Bruyne',
-    //             timejogador: 'Manchester City'
-    //         },
-    //         {
-    //             idJogador: 2,
-    //             nomeJogador: 'Antony',
-    //             timejogador: 'Manchester United'
-    //         },
-    //         {
-    //             idJogador: 3,
-    //             nomeJogador: 'Buyako Saka',
-    //             timejogador: 'Arsenal'
-    //         },
-    //         {
-    //             idJogador: 4,
-    //             nomeJogador: 'Salah',
-    //             timejogador: 'Liverpool'
-    //         },
-    //         {
-    //             idJogador: 5,
-    //             nomeJogador: 'Kalidou Koulibaly',
-    //             timejogador: 'Chelsea'
-    //         },
-    //         {
-    //             idJogador: 6,
-    //             nomeJogador: 'Harry Kane',
-    //             timejogador: 'Tottenham'
-    //         }
-    // ]
+    window.onload = obterDados()
 
     function notas(){
         aguardar();
@@ -239,7 +164,7 @@
         return false;
     }
 
-    function obterDadosGrafico(idNota) {
+    function obterDados(idNota) {
 
         fetch(`/medidas/ultimas/${idNota}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -247,7 +172,7 @@
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
-                    plotarGrafico(resposta, idNota);
+                    mostrarInfo(resposta, idNota);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -257,135 +182,24 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
-    function plotarGrafico(resposta, idNota) {
+    function mostrarInfo(resposta, idNota) {
         console.log('iniciando plotagem do gráfico...');
 
-        // Criando estrutura para plotar gráfico - labels
+        
         
 
         console.log('----------------------------------------------')
-        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log('Estes dados foram recebidos pela funcao "obterDados" e passados para "mostrarInfo":')
         console.log(resposta)
 
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             min.innerHTML = resposta[i].minimo
             media.innerHTML = resposta[i].media
             max.innerHTML = resposta[i].maxima
             quantidade.innerHTML = resposta[i].quantidade
-            //labels.push(registro.momento_grafico);
-            // dados.datasets[0].data.push(registro.umidade);
-            // dados.datasets[1].data.push(registro.temperatura);
         }
-
-        console.log('----------------------------------------------')
-        console.log('O gráfico será plotado com os respectivos valores:')
-        console.log('Labels:')
-        // console.log(labels)
-        console.log('Dados:')
-        // console.log(dados.datasets)
-        console.log('----------------------------------------------')
-
     }
-
-
-    // function atualizacaoPeriodica() {
-    //     obterdados(1);
-    //     obterdados(2);
-    //     obterdados(3);
-    //     obterdados(4);
-
-    //     function sendData() {
-	// 		var http = new XMLHttpRequest();
-	// 		http.open('POST', 'http://localhost:3000/api/sendData', false);
-	// 		http.send(null);
-	// 	}
-
-    //     setInterval(() => {
-	// 		sendData();
-	// 	}, 2000);
-    //     setTimeout(atualizacaoPeriodica, 5000);
-    // }
-
-    // function obterdados(idAquario) {
-    //     fetch(`/medidas/tempo-real/${idAquario}`)
-    //         .then(resposta => {
-
-    //             if (resposta.ok) {
-    //                 resposta.json().then(resposta => {
-
-    //                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-    //                     var dados = {
-    //                         temperatura: resposta[0].temperatura,
-    //                     }
-
-    //                     alertar(resposta[0].temperatura, idAquario);
-    //                 });
-    //             } else {
-
-    //                 console.error('Nenhum dado encontrado ou erro na API');
-    //             }
-    //         })
-    //         .catch(function (error) {
-    //             console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
-    //         });
-
-    // }
-
-    // function alertar(temperatura, idAquario) {
-    //     var limites = {
-    //         muito_quente: 23,
-    //         quente: 22,
-    //         ideal: 20,
-    //         frio: 10,
-    //         muito_frio: 5
-    //     };
-
-    //     var classe_temperatura = 'cor-alerta';
-
-    //     if (temperatura >= limites.muito_quente) {
-    //         classe_temperatura = 'cor-alerta perigo-quente';
-    //         console.log("caiu no 1")
-    //     }
-    //     else if (temperatura < limites.muito_quente && temperatura >= limites.quente) {
-    //         classe_temperatura = 'cor-alerta alerta-quente';
-    //         console.log("caiu no 2")
-    //     }
-    //     else if (temperatura < limites.quente && temperatura > limites.frio) {
-    //         classe_temperatura = 'cor-alerta ideal';
-    //         console.log("caiu no 3")
-    //     }
-    //     else if (temperatura <= limites.frio && temperatura > limites.muito_frio) {
-    //         classe_temperatura = 'cor-alerta alerta-frio';
-    //         console.log("caiu no 4")
-    //     }
-    //     else if (temperatura < limites.min_temperatura) {
-    //         classe_temperatura = 'cor-alerta perigo-frio';
-    //         console.log("caiu no 5")
-    //     }
-
-    //     var card;
-
-    //     if (idAquario == 1) {
-    //         temp_aquario_1.innerHTML = temperatura + "°C";
-    //         card = card_1
-    //     } else if (idAquario == 2) {
-    //         temp_aquario_2.innerHTML = temperatura + "°C";
-    //         card = card_2
-    //     } else if (idAquario == 3) {
-    //         temp_aquario_3.innerHTML = temperatura + "°C";
-    //         card = card_3
-    //     } else if (idAquario == 4) {
-    //         temp_aquario_4.innerHTML = temperatura + "°C";
-    //         card = card_4
-    //     }
-
-    //     // alterando
-    //     card.className = classe_temperatura;
-
-    // }
 
 </script>
 

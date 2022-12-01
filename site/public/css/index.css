@@ -142,6 +142,26 @@ body {
   flex-direction: column;
 }
 
+.atributos .box {
+  width: 50em;
+  display: flex;
+  height: 100em;
+}
+
+.btn {
+  font-family: "Barlow", sans-serif;
+  border: 0;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #38003D;
+  width: 120px;
+  align-self: center;
+  margin-top: 5px;
+}
+
 .tamanho-conteudo {
   height: fit-content !important;
 }

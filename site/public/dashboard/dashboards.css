@@ -168,7 +168,7 @@ body {
 }
 
 .perigo-frio {
-  background-color: #5c6bc0;
+  background-color: white;
 }
 
 .perigo-quente {
@@ -176,15 +176,15 @@ body {
 }
 
 .alerta-frio {
-  background-color: #42a5f5;
+  background-color: red;
 }
 
 .alerta-quente {
-  background-color: #ffee58;
+  background-color: blue;
 }
 
 .ideal {
-  background-color: #9ccc65;
+  background-color: green;
 }
 
 .item-regua {

@@ -23,9 +23,9 @@ router.post("/publicar/:idUsuario", function (req, res) {
     avisoController.publicar(req, res);
 });
 
-router.put("/editar/:idAvaliacao", function (req, res) {
-    avisoController.editar(req, res);
-});
+// router.put("/editar/:idAvaliacao", function (req, res) {
+//     avisoController.editar(req, res);
+// });
 
 router.delete("/deletar/:idAvaliacao", function (req, res) {
     avisoController.deletar(req, res);

@@ -55,42 +55,6 @@
             </div>
 
         </div>
-
-        <!-- <div class="dash-right">
-
-            <div class="avisos">
-                <div class="container">
-                    <h1>Editar um aviso</h1>
-                    <div class="div-form">
-                        <label>
-                            ID:
-                            <br>
-                            <input id="input_id" maxlength="100" type="text" style="color: rgb(196, 196, 196)" disabled>
-                        </label>
-                        <label>
-                            Autor:
-                            <br>
-                            <input id="input_nome" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
-                                disabled>
-                        </label>
-                        <label>
-                            Título:
-                            <br>
-                            <input id="input_titulo" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
-                                disabled>
-                        </label>
-                        <br>
-                        <label>
-                            Descrição (máximo de 250 caracteres):
-                            <br>
-                            <textarea id="textarea_descricao" maxlength="250" rows="5"></textarea>
-                        </label>
-                        <br>
-                        <button onclick="editar()">Editar</button>
-                    </div>
-
-                </div>
-            </div> -->
         </div>
     </div>
 </body>
@@ -102,28 +66,28 @@
         console.log("Criar função de trazer informações de post escolhido");
     }
 
-    function editar() {
-        fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                descricao: textarea_descricao.value
-            })
-        }).then(function (resposta) {
+    // function editar() {
+    //     fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
+    //         method: "PUT",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             descricao: textarea_descricao.value
+    //         })
+    //     }).then(function (resposta) {
 
-            if (resposta.ok) {
-                window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
+    //         if (resposta.ok) {
+    //             window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+    //             window.location = "/dashboard/mural.html"
+    //         } else if (resposta.status == 404) {
+    //             window.alert("Deu 404!");
+    //         } else {
+    //             throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+    //         }
+    //     }).catch(function (resposta) {
+    //         console.log(`#ERRO: ${resposta}`);
+    //     });
+    // }
 
 </script>
